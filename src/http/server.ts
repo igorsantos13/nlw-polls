@@ -1,6 +1,7 @@
 import fastify from "fastify";
 import z from "zod";
 import { createPoll } from "./routes/create-poll";
+import { getPoll } from "./routes/get-poll";
 
 const app = fastify();
 app.listen({ port: 3333 }).then(() => {
@@ -8,6 +9,7 @@ app.listen({ port: 3333 }).then(() => {
 });
 
 app.register(createPoll);
+app.register(getPoll);
 
 app.get("/hello", () => {
   return `hello NLW`;
